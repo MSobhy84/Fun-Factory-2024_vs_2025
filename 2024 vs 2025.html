@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Overview – 2024 vs 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f1f5f9;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        .rtl-grid {
+            direction: rtl;
+        }
+        .icon {
+            width: 2rem;
+            height: 2rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-800">نمو الأداء في الفروع - مقارنة 2024 و 2025</h1>
+            <p class="text-slate-500 mt-2">نظرة شاملة على مؤشرات الأداء الرئيسية</p>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 rtl-grid">
+
+            <!-- Gross Sales Chart -->
+            <div class="card">
+                <div class="flex items-center mb-4">
+                    <span class="text-yellow-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </span>
+                    <h2 class="text-xl font-bold text-slate-700 mr-3">إجمالي المبيعات (Gross Sales)</h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="grossSalesChart"></canvas>
+                </div>
+                 <p class="text-sm text-slate-500 mt-4 text-center">
+                    <span class="font-bold text-blue-600">القاهرة الجديدة</span> حقق أعلى نمو في إجمالي المبيعات بنسبة <span class="font-bold">45.6%</span>.
+                </p>
+            </div>
+
+            <!-- Net Sales Chart -->
+            <div class="card">
+                <div class="flex items-center mb-4">
+                     <span class="text-green-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </span>
+                    <h2 class="text-xl font-bold text-slate-700 mr-3">صافي المبيعات (Net Sales)</h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="netSalesChart"></canvas>
+                </div>
+                 <p class="text-sm text-slate-500 mt-4 text-center">
+                    نمو ملحوظ في صافي المبيعات عبر جميع الفروع يعكس تحسنًا في إدارة الخصومات والمرتجعات.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Visitors & Conversion Rate Section -->
+        <div class="card mt-6">
+            <div class="flex items-center mb-6">
+                <span class="text-indigo-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <h2 class="text-xl font-bold text-slate-700 mr-3">الزوار ومعدل التحويل (Visitors & Conversion Rate)</h2>
+            </div>
+             <p class="text-sm text-slate-500 mb-6 text-center">
+                <span class="font-bold text-purple-600">فرع الرحاب</span> أظهر أفضل تحسن في معدل التحويل، حيث ارتفع من <span class="font-bold">63%</span> إلى <span class="font-bold">78%</span>.
+             </p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center rtl-grid">
+                <!-- Visitor cards will be generated by JS -->
+                <div id="visitor-cards-container" class="col-span-full grid grid-cols-2 md:grid-cols-5 gap-4"></div>
+            </div>
+        </div>
+
+        <!-- ATV, UPT & Quantities Section -->
+        <div class="card mt-6">
+             <div class="flex items-center mb-6">
+                <span class="text-sky-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                </span>
+                <h2 class="text-xl font-bold text-slate-700 mr-3">مؤشرات سلة الشراء</h2>
+            </div>
+            <div id="kpi-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 rtl-grid">
+                <!-- KPI cards will be generated by JS -->
+            </div>
+        </div>
+        
+        <!-- Summary Bar -->
+        <footer class="mt-8 bg-slate-800 text-white rounded-lg p-6 shadow-lg">
+            <h3 class="text-2xl font-bold text-center mb-4">ملخص الأداء الإجمالي 2025</h3>
+            <div id="summary-container" class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <!-- Summary items will be generated by JS -->
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Data from the image
+        const performanceData = {
+            labels: ['New Cairo', 'Mokattam', 'Golf', 'Rehab', 'Total'],
+            colors: {
+                'New Cairo': 'rgba(59, 130, 246, 0.8)', // blue
+                'Mokattam': 'rgba(34, 197, 94, 0.8)',  // green
+                'Golf': 'rgba(249, 115, 22, 0.8)',   // orange
+                'Rehab': 'rgba(139, 92, 246, 0.8)',    // purple
+                'Total': 'rgba(107, 114, 128, 0.8)',   // gray
+            },
+            data: {
+                'New Cairo': {
+                    '2024': { gross: 2812400, net: 2615864, atv: 787, upt: 2.50, qty: 8244, visitors: 3844, conv: 81 },
+                    '2025': { gross: 4094092, net: 3673307, atv: 1031, upt: 2.96, qty: 10515, visitors: 3937, conv: 90 }
+                },
+                'Mokattam': {
+                    '2024': { gross: 1566585, net: 1423397, atv: 930, upt: 2.40, qty: 3716, visitors: 1975, conv: 77 },
+                    '2025': { gross: 2071518, net: 1864815, atv: 1007, upt: 2.80, qty: 5254, visitors: 2085, conv: 88 }
+                },
+                'Golf': {
+                    '2024': { gross: 1403745, net: 1252785, atv: 737, upt: 2.40, qty: 4057, visitors: 1862, conv: 91 },
+                    '2025': { gross: 1643693, net: 1413089, atv: 775, upt: 3.00, qty: 5380, visitors: 2048, conv: 89 }
+                },
+                'Rehab': {
+                    '2024': { gross: 1610719, net: 1460172, atv: 763, upt: 1.80, qty: 3245, visitors: 2613, conv: 63 },
+                    '2025': { gross: 2150359, net: 1952612, atv: 758, upt: 2.30, qty: 5994, visitors: 3311, conv: 78 }
+                },
+                'Total': {
+                    '2024': { gross: 7393449, net: 6752218, atv: 804, upt: 2.27, qty: 19262, visitors: 10294, conv: 78 },
+                    '2025': { gross: 9959662, net: 8903823, atv: 899, upt: 2.76, qty: 27143, visitors: 11381, conv: 86 }
+                }
+            }
+        };
+
+        const chartLabels = ['New Cairo', 'Mokattam', 'Golf', 'Rehab'];
+        const chartColors = chartLabels.map(label => performanceData.colors[label]);
+        
+        // Helper to format numbers
+        const formatNumber = (num) => new Intl.NumberFormat('en-US').format(num);
+
+        // 1. Gross Sales Chart
+        const grossSalesCtx = document.getElementById('grossSalesChart').getContext('2d');
+        new Chart(grossSalesCtx, {
+            type: 'bar',
+            data: {
+                labels: chartLabels,
+                datasets: [
+                    {
+                        label: '2024',
+                        data: chartLabels.map(l => performanceData.data[l]['2024'].gross),
+                        backgroundColor: 'rgba(156, 163, 175, 0.8)',
+                        borderColor: 'rgba(156, 163, 175, 1)',
+                        borderWidth: 1,
+                        borderRadius: 5,
+                    },
+                    {
+                        label: '2025',
+                        data: chartLabels.map(l => performanceData.data[l]['2025'].gross),
+                        backgroundColor: chartColors,
+                        borderColor: chartColors.map(c => c.replace('0.8', '1')),
+                        borderWidth: 1,
+                        borderRadius: 5,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return (value / 1000000) + 'M';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${formatNumber(context.raw)}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 2. Net Sales Chart
+        const netSalesCtx = document.getElementById('netSalesChart').getContext('2d');
+        new Chart(netSalesCtx, {
+            type: 'bar',
+            data: {
+                labels: chartLabels,
+                datasets: [
+                    {
+                        label: '2024',
+                        data: chartLabels.map(l => performanceData.data[l]['2024'].net),
+                        backgroundColor: 'rgba(156, 163, 175, 0.8)',
+                        borderColor: 'rgba(156, 163, 175, 1)',
+                        borderWidth: 1,
+                        borderRadius: 5,
+                    },
+                    {
+                        label: '2025',
+                        data: chartLabels.map(l => performanceData.data[l]['2025'].net),
+                        backgroundColor: chartColors,
+                        borderColor: chartColors.map(c => c.replace('0.8', '1')),
+                        borderWidth: 1,
+                        borderRadius: 5,
+                    }
+                ]
+            },
+             options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return (value / 1000000) + 'M';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${formatNumber(context.raw)}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 3. Visitor & Conversion Rate Cards
+        const visitorContainer = document.getElementById('visitor-cards-container');
+        performanceData.labels.forEach(label => {
+            const data2025 = performanceData.data[label]['2025'];
+            const data2024 = performanceData.data[label]['2024'];
+            const color = performanceData.colors[label].replace('0.8', '1');
+            
+            const cardHTML = `
+                <div class="p-4 rounded-lg" style="border: 2px solid ${color};">
+                    <h3 class="text-lg font-bold" style="color: ${color};">${label}</h3>
+                    <div class="relative w-32 h-32 mx-auto mt-4">
+                         <canvas id="convChart-${label.replace(' ', '')}"></canvas>
+                         <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                            <span class="font-bold text-2xl" style="color: ${color};">${data2025.conv}%</span>
+                            <span class="text-xs text-slate-500">معدل التحويل</span>
+                         </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-slate-700 font-bold text-lg">${formatNumber(data2025.visitors)}</p>
+                        <p class="text-sm text-slate-500">زائر</p>
+                    </div>
+                </div>
+            `;
+            visitorContainer.innerHTML += cardHTML;
+        });
+        
+        // Create doughnut charts after adding cards to DOM
+        setTimeout(() => {
+             performanceData.labels.forEach(label => {
+                const convCtx = document.getElementById(`convChart-${label.replace(' ', '')}`).getContext('2d');
+                const convRate = performanceData.data[label]['2025'].conv;
+                const color = performanceData.colors[label];
+                new Chart(convCtx, {
+                    type: 'doughnut',
+                    data: {
+                        datasets: [{
+                            data: [convRate, 100 - convRate],
+                            backgroundColor: [color, '#e5e7eb'],
+                            borderColor: ['#fff'],
+                            borderWidth: 2,
+                            cutout: '80%',
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            tooltip: { enabled: false },
+                            legend: { display: false }
+                        }
+                    }
+                });
+            });
+        }, 0);
+
+        // 4. ATV, UPT, Quantities Cards
+        const kpiContainer = document.getElementById('kpi-cards-container');
+        chartLabels.forEach(label => {
+            const d2024 = performanceData.data[label]['2024'];
+            const d2025 = performanceData.data[label]['2025'];
+            const color = performanceData.colors[label].replace('0.8', '1');
+
+            const renderChange = (val2025, val2024) => {
+                const change = val2025 - val2024;
+                const changePercent = ((change / val2024) * 100).toFixed(1);
+                const isPositive = change >= 0;
+                const arrow = isPositive ? '▲' : '▼';
+                const colorClass = isPositive ? 'text-green-500' : 'text-red-500';
+                return `<span class="text-sm font-semibold ${colorClass} mr-2">${arrow} ${changePercent}%</span>`;
+            };
+
+            const cardHTML = `
+                <div class="p-4 rounded-lg flex flex-col justify-between" style="background-color: ${color.replace('1', '0.1')}; border-left: 5px solid ${color};">
+                    <h3 class="font-bold text-lg mb-4" style="color: ${color};">${label}</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <span class="text-slate-600 font-semibold">ATV</span>
+                            <div>
+                                ${renderChange(d2025.atv, d2024.atv)}
+                                <span class="font-bold text-xl text-slate-800">${formatNumber(d2025.atv)}</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-baseline">
+                            <span class="text-slate-600 font-semibold">UPT</span>
+                            <div>
+                                ${renderChange(d2025.upt, d2024.upt)}
+                                <span class="font-bold text-xl text-slate-800">${d2025.upt.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-baseline">
+                            <span class="text-slate-600 font-semibold">الكميات</span>
+                             <div>
+                                ${renderChange(d2025.qty, d2024.qty)}
+                                <span class="font-bold text-xl text-slate-800">${formatNumber(d2025.qty)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            kpiContainer.innerHTML += cardHTML;
+        });
+        
+        // 5. Summary Bar
+        const summaryContainer = document.getElementById('summary-container');
+        const total2025 = performanceData.data['Total']['2025'];
+        const summaryItems = [
+            { icon: '💰', label: 'إجمالي المبيعات', value: `EGP ${formatNumber(total2025.gross)}` },
+            { icon: '👥', label: 'إجمالي الزوار', value: formatNumber(total2025.visitors) },
+            { icon: '📦', label: 'إجمالي الكميات', value: formatNumber(total2025.qty) },
+            { icon: '📊', label: 'متوسط التحويل', value: `${total2025.conv}%` }
+        ];
+        
+        summaryItems.forEach(item => {
+            summaryContainer.innerHTML += `
+                <div>
+                    <p class="text-3xl">${item.icon}</p>
+                    <p class="text-2xl font-bold text-yellow-300 mt-2">${item.value}</p>
+                    <p class="text-slate-300">${item.label}</p>
+                </div>
+            `;
+        });
+
+    </script>
+</body>
+</html>
